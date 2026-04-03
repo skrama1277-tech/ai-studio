@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
-import INIT_UCS from "./data/ucs_data.json";
 
 const PASSWORD   = "AI@BEQ";
 const ADMIN_PIN  = "AI@BEQ";
@@ -193,7 +192,7 @@ export default function App() {
   const [pinErr, setPinErr] = useState(false);
   const [dk, setDk] = useState(false);
   const [view, setView] = useState("home");
-  const [ucs, setUcs] = useState(INIT_UCS);
+  const [ucs, setUcs] = useState([]);
   const [spLoading, setSpLoading] = useState(false);
   const [spError, setSpError] = useState(null);
   const [spStatus, setSpStatus] = useState("");
@@ -222,19 +221,15 @@ export default function App() {
     if (!authed) return;
     setSpLoading(true); setSpError(null);
     fetchUseCases().then(data => {
-      if (data?.ucs?.length > 0) {
-        const spTitles = new Set(data.ucs.map(u => u.title.toLowerCase()));
-        const localOnly = INIT_UCS.filter(u => !spTitles.has(u.title.toLowerCase()));
-        const merged = [...data.ucs, ...localOnly];
-        setUcs(merged);
-        // Rebuild archs/videos from persisted UC fields
-        const a = {}, v = {};
-        merged.forEach(u => {
-          if (u.archUrl) a[u.id] = { url: u.archUrl, name: u.archName || "", mime: u.archMime || "image/png" };
-          if (u.videoUrl) v[u.id] = { url: u.videoUrl, name: u.videoName || "" };
-        });
-        setArchs(a); setVideos(v);
-      }
+      const loaded = data?.ucs || [];
+      setUcs(loaded);
+      // Rebuild archs/videos from persisted UC fields
+      const a = {}, v = {};
+      loaded.forEach(u => {
+        if (u.archUrl) a[u.id] = { url: u.archUrl, name: u.archName || "", mime: u.archMime || "image/png" };
+        if (u.videoUrl) v[u.id] = { url: u.videoUrl, name: u.videoName || "" };
+      });
+      setArchs(a); setVideos(v);
       setSpStatus("synced"); setSpLoading(false);
     }).catch(err => { console.error("GetUseCases failed:", err); setSpStatus(""); setSpLoading(false); });
   }, [authed]);
