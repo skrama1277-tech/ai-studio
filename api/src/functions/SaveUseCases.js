@@ -15,13 +15,14 @@ app.http('SaveUseCases', {
 
     try {
       const body = await request.text();
-      JSON.parse(body); // validate JSON before saving
+      const parsed = JSON.parse(body); // validate JSON before saving
+      const formatted = JSON.stringify(parsed, null, 2);
 
       const cred   = new StorageSharedKeyCredential(account, key);
       const client = new BlobServiceClient(`https://${account}.blob.core.windows.net`, cred);
       const blob   = client.getContainerClient(container).getBlockBlobClient('data.json');
 
-      await blob.upload(body, Buffer.byteLength(body), {
+      await blob.upload(formatted, Buffer.byteLength(formatted), {
         blobHTTPHeaders: { blobContentType: 'application/json' }
       });
 
