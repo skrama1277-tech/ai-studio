@@ -336,7 +336,19 @@ export default function App() {
 
   const saveUC = async uc => {
     if (!isAdmin) return; setSpStatus("saving"); let finalUcs;
-    try { const i = ucs.findIndex(u => u.id === uc.id); if (i >= 0) { const n = [...ucs]; n[i] = uc; finalUcs = n; } else { finalUcs = [...ucs, uc]; } setUcs(finalUcs); await saveUseCases(finalUcs); setSpStatus("synced"); }
+    try {
+      // Merge arch/video URLs from state — form data doesn't carry these fields
+      const arch  = archs[uc.id];
+      const video = videos[uc.id];
+      const merged = {
+        ...uc,
+        ...(arch  ? { archUrl: arch.url,   archName: arch.name,   archMime: arch.mime  } : {}),
+        ...(video ? { videoUrl: video.url, videoName: video.name                       } : {}),
+      };
+      const i = ucs.findIndex(u => u.id === merged.id);
+      if (i >= 0) { const n = [...ucs]; n[i] = merged; finalUcs = n; } else { finalUcs = [...ucs, merged]; }
+      setUcs(finalUcs); await saveUseCases(finalUcs); setSpStatus("synced");
+    }
     catch (err) { console.error("Save error:", err); setSpStatus("error"); }
     setEditUC(null); setAdmin(false);
   };
