@@ -1,0 +1,9 @@
+node_modules/
+api/node_modules
+dist/
+.env
+.env.local
+*.pem
+*.key
+api/local.settings.json
+azure-cli.txt.env

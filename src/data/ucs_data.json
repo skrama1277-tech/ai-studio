@@ -1,0 +1,1263 @@
+[
+  {
+    "id": "cyber_na",
+    "domain": "business",
+    "pillar": "speed",
+    "status": "Live",
+    "title": "Cyber Underwriting NA",
+    "dept": "Underwriting",
+    "impact": "65% faster · 55% more bound",
+    "summary": "Aimed at streamlining the quote generation process for Cyber Insurance using GenAI to enhance risk selection and support expected rapid growth. The existing risk selection process was entirely manual, causing delays in underwriting and resulting in lost business.",
+    "outcomes": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed — zero leakage",
+      "55% increase in bound policies NA · 43% EO"
+    ],
+    "fromTime": "3–5 days",
+    "toTime": "<1 hr",
+    "fromSteps": [
+      "Broker submits via email or portal",
+      "Underwriter manually reviews documents",
+      "Risk data keyed into system manually",
+      "Judgment applied to price and assess",
+      "Quote issued — avg. 3–5 days"
+    ],
+    "toSteps": [
+      {
+        "l": "Broker submission received",
+        "a": false
+      },
+      {
+        "l": "AI extracts and structures risk data",
+        "a": true
+      },
+      {
+        "l": "Risk scoring agent assesses exposure vs. appetite",
+        "a": true
+      },
+      {
+        "l": "Quote recommendation with rationale generated",
+        "a": true
+      },
+      {
+        "l": "Underwriter reviews and issues quote",
+        "a": false
+      }
+    ],
+    "financial": [
+      "~$3.2M NB GWP uplift for NA Cyber (R1+R2)",
+      "~$6.1M NB GWP uplift for EO Cyber (R1)",
+      "Investment: $2.8M NA · $1.6M EO"
+    ],
+    "operational": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed",
+      "55% bound policies increase NA"
+    ],
+    "governance": [
+      "Consistent risk selection criteria across all submissions",
+      "Full audit trail of AI vs. underwriter decisions",
+      "Documented pricing rationale supporting regulatory compliance"
+    ],
+    "impactBadges": [
+      {
+        "l": "Time-to-quote",
+        "d": "down"
+      },
+      {
+        "l": "Bound policies",
+        "d": "up"
+      },
+      {
+        "l": "Submission throughput",
+        "d": "up"
+      },
+      {
+        "l": "NB GWP revenue",
+        "d": "up"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "cyber_eo",
+    "domain": "business",
+    "pillar": "speed",
+    "status": "Live",
+    "title": "Cyber Underwriting EO",
+    "dept": "Underwriting",
+    "impact": "65% faster · 55% more bound",
+    "summary": "Aimed at streamlining the quote generation process for Cyber Insurance using GenAI to enhance risk selection and support expected rapid growth. The existing risk selection process was entirely manual, causing delays in underwriting and resulting in lost business.",
+    "outcomes": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed — zero leakage",
+      "55% increase in bound policies NA · 43% EO"
+    ],
+    "fromTime": "3–5 days",
+    "toTime": "<1 hr",
+    "fromSteps": [
+      "Broker submits via email or portal",
+      "Underwriter manually reviews documents",
+      "Risk data keyed into system manually",
+      "Judgment applied to price and assess",
+      "Quote issued — avg. 3–5 days"
+    ],
+    "toSteps": [
+      {
+        "l": "Broker submission received",
+        "a": false
+      },
+      {
+        "l": "AI extracts and structures risk data",
+        "a": true
+      },
+      {
+        "l": "Risk scoring agent assesses exposure vs. appetite",
+        "a": true
+      },
+      {
+        "l": "Quote recommendation with rationale generated",
+        "a": true
+      },
+      {
+        "l": "Underwriter reviews and issues quote",
+        "a": false
+      }
+    ],
+    "financial": [
+      "~$3.2M NB GWP uplift for NA Cyber (R1+R2)",
+      "~$6.1M NB GWP uplift for EO Cyber (R1)",
+      "Investment: $2.8M NA · $1.6M EO"
+    ],
+    "operational": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed",
+      "55% bound policies increase NA"
+    ],
+    "governance": [
+      "Consistent risk selection criteria across all submissions",
+      "Full audit trail of AI vs. underwriter decisions",
+      "Documented pricing rationale supporting regulatory compliance"
+    ],
+    "impactBadges": [
+      {
+        "l": "Time-to-quote",
+        "d": "down"
+      },
+      {
+        "l": "Bound policies",
+        "d": "up"
+      },
+      {
+        "l": "Submission throughput",
+        "d": "up"
+      },
+      {
+        "l": "NB GWP revenue",
+        "d": "up"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "cyber_asia",
+    "domain": "business",
+    "pillar": "speed",
+    "status": "Live",
+    "title": "Cyber Underwriting Asia",
+    "dept": "Underwriting",
+    "impact": "65% faster · 55% more bound",
+    "summary": "Aimed at streamlining the quote generation process for Cyber Insurance using GenAI to enhance risk selection and support expected rapid growth. The existing risk selection process was entirely manual, causing delays in underwriting and resulting in lost business.",
+    "outcomes": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed — zero leakage",
+      "55% increase in bound policies NA · 43% EO"
+    ],
+    "fromTime": "3–5 days",
+    "toTime": "<1 hr",
+    "fromSteps": [
+      "Broker submits via email or portal",
+      "Underwriter manually reviews documents",
+      "Risk data keyed into system manually",
+      "Judgment applied to price and assess",
+      "Quote issued — avg. 3–5 days"
+    ],
+    "toSteps": [
+      {
+        "l": "Broker submission received",
+        "a": false
+      },
+      {
+        "l": "AI extracts and structures risk data",
+        "a": true
+      },
+      {
+        "l": "Risk scoring agent assesses exposure vs. appetite",
+        "a": true
+      },
+      {
+        "l": "Quote recommendation with rationale generated",
+        "a": true
+      },
+      {
+        "l": "Underwriter reviews and issues quote",
+        "a": false
+      }
+    ],
+    "financial": [
+      "~$3.2M NB GWP uplift for NA Cyber (R1+R2)",
+      "~$6.1M NB GWP uplift for EO Cyber (R1)",
+      "Investment: $2.8M NA · $1.6M EO"
+    ],
+    "operational": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed",
+      "55% bound policies increase NA"
+    ],
+    "governance": [
+      "Consistent risk selection criteria across all submissions",
+      "Full audit trail of AI vs. underwriter decisions",
+      "Documented pricing rationale supporting regulatory compliance"
+    ],
+    "impactBadges": [
+      {
+        "l": "Time-to-quote",
+        "d": "down"
+      },
+      {
+        "l": "Bound policies",
+        "d": "up"
+      },
+      {
+        "l": "Submission throughput",
+        "d": "up"
+      },
+      {
+        "l": "NB GWP revenue",
+        "d": "up"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "prop_auspac",
+    "domain": "business",
+    "pillar": "speed",
+    "status": "Live",
+    "title": "Property Underwriting AusPac",
+    "dept": "Underwriting",
+    "impact": "65% faster · 55% more bound",
+    "summary": "Streamlining the quote generation process for Property insurance using GenAI to enhance risk selection and support expected rapid growth.",
+    "outcomes": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed — zero leakage",
+      "55% increase in bound policies"
+    ],
+    "fromTime": "3–5 days",
+    "toTime": "<1 hr",
+    "fromSteps": [
+      "Broker submits via email or portal",
+      "Underwriter manually reviews documents",
+      "Risk data keyed into system manually",
+      "Judgment applied to price and assess",
+      "Quote issued — avg. 3–5 days"
+    ],
+    "toSteps": [
+      {
+        "l": "Broker submission received",
+        "a": false
+      },
+      {
+        "l": "AI extracts and structures risk data",
+        "a": true
+      },
+      {
+        "l": "Risk scoring agent assesses exposure vs. appetite",
+        "a": true
+      },
+      {
+        "l": "Quote recommendation with rationale generated",
+        "a": true
+      },
+      {
+        "l": "Underwriter reviews and issues quote",
+        "a": false
+      }
+    ],
+    "financial": [],
+    "operational": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed"
+    ],
+    "governance": [
+      "Consistent risk selection criteria across all submissions",
+      "Full audit trail of AI vs. underwriter decisions"
+    ],
+    "impactBadges": [
+      {
+        "l": "Time-to-quote",
+        "d": "down"
+      },
+      {
+        "l": "Bound policies",
+        "d": "up"
+      },
+      {
+        "l": "Submission throughput",
+        "d": "up"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "wc_asia",
+    "domain": "business",
+    "pillar": "speed",
+    "status": "Live",
+    "title": "Worker Compensation Underwriting Asia",
+    "dept": "Underwriting",
+    "impact": "65% faster · 55% more bound",
+    "summary": "Expedite the quote generation process for Worker's Compensation insurance using GenAI to enhance risk selection and support expected rapid growth.",
+    "outcomes": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed — zero leakage",
+      "55% increase in bound policies"
+    ],
+    "fromTime": "3–5 days",
+    "toTime": "<1 hr",
+    "fromSteps": [
+      "Broker submits via email or portal",
+      "Underwriter manually reviews documents",
+      "Risk data keyed into system manually",
+      "Judgment applied to price and assess",
+      "Quote issued — avg. 3–5 days"
+    ],
+    "toSteps": [
+      {
+        "l": "Broker submission received",
+        "a": false
+      },
+      {
+        "l": "AI extracts and structures risk data",
+        "a": true
+      },
+      {
+        "l": "Risk scoring agent assesses exposure vs. appetite",
+        "a": true
+      },
+      {
+        "l": "Quote recommendation with rationale generated",
+        "a": true
+      },
+      {
+        "l": "Underwriter reviews and issues quote",
+        "a": false
+      }
+    ],
+    "financial": [],
+    "operational": [
+      "~65% reduction in time-to-quote",
+      "100% submissions assessed"
+    ],
+    "governance": [
+      "Consistent risk selection criteria across all submissions",
+      "Full audit trail of AI vs. underwriter decisions"
+    ],
+    "impactBadges": [
+      {
+        "l": "Time-to-quote",
+        "d": "down"
+      },
+      {
+        "l": "Bound policies",
+        "d": "up"
+      },
+      {
+        "l": "Submission throughput",
+        "d": "up"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "qgpt",
+    "domain": "business",
+    "pillar": "quality",
+    "status": "Live",
+    "title": "Q-GPT",
+    "dept": "Enterprise AI platform",
+    "impact": "75% effort reduction",
+    "summary": "BEQ's managed, secure interface to ChatGPT capabilities — delivering governed, persona-based AI across 2,237 users spanning 912 business teams with full audit trails and enterprise-grade data controls.",
+    "outcomes": [
+      "75% effort reduction for Legal, Risk & Data Science",
+      "2,237 active users across 912 teams",
+      "Secure data estate — no public ChatGPT dependency"
+    ],
+    "fromTime": "Manual / unsecured",
+    "toTime": "Instant / governed",
+    "fromSteps": [
+      "Employee uses public ChatGPT",
+      "Sensitive documents uploaded to unsecured LLM",
+      "No prompt standardisation or governance",
+      "No audit trail",
+      "Data privacy risk unmanaged"
+    ],
+    "toSteps": [
+      {
+        "l": "Employee accesses Q-GPT — secure BEQ interface",
+        "a": false
+      },
+      {
+        "l": "Azure GPT-4o ingests documents within BEQ network",
+        "a": true
+      },
+      {
+        "l": "Persona-based experience surfaces role-relevant prompts",
+        "a": true
+      },
+      {
+        "l": "Curated prompt library ensures quality outputs",
+        "a": true
+      },
+      {
+        "l": "Audit trails and access controls enforced",
+        "a": false
+      }
+    ],
+    "financial": [
+      "75% effort reduction for Legal, Risk & Data Science",
+      "Eliminates cost and risk of unsanctioned LLM usage"
+    ],
+    "operational": [
+      "~2,237 users across 912 business teams",
+      "Precise data insights from ingested documents"
+    ],
+    "governance": [
+      "Secure data estate — no public ChatGPT dependency",
+      "Centralised model lifecycle management with audit trails"
+    ],
+    "impactBadges": [
+      {
+        "l": "Effort for Legal, Risk & DS",
+        "d": "down"
+      },
+      {
+        "l": "Data security & compliance",
+        "d": "up"
+      },
+      {
+        "l": "Enterprise AI adoption",
+        "d": "up"
+      },
+      {
+        "l": "Response turnaround",
+        "d": "down"
+      }
+    ]
+  },
+  {
+    "id": "eventops",
+    "domain": "technology",
+    "pillar": "cost",
+    "status": "Live",
+    "title": "EventOps Agent",
+    "dept": "Technology Ops",
+    "impact": "90% reduction in diagnosis time",
+    "summary": "Agentic AI ingesting, deduplicating, correlating and root-cause-analysing events across monitoring platforms — cutting mean diagnosis time from 5 hours to 30 minutes and reducing P1/P2 escalations.",
+    "outcomes": [
+      "90% reduction in diagnosis time",
+      "20–30% cut in IT support cost",
+      "Fewer P1/P2 escalations"
+    ],
+    "fromTime": "5 hrs",
+    "toTime": "0.5 hr",
+    "fromSteps": [
+      "Alerts generated across multiple monitoring platforms",
+      "Manual correlation to identify true events",
+      "Manual diagnostic across Alert Center, Dynatrace",
+      "Manual drill-down and RCA with limited automation",
+      "Finalise RCA and execute corrective actions"
+    ],
+    "toSteps": [
+      {
+        "l": "Events ingested from monitoring tools (idera, Dynatrace etc.)",
+        "a": false
+      },
+      {
+        "l": "Deduplication & categorisation agent removes duplicates",
+        "a": true
+      },
+      {
+        "l": "Correlation & clustering agent groups events into problems",
+        "a": true
+      },
+      {
+        "l": "RCA agent generates summaries and actionable insights",
+        "a": true
+      },
+      {
+        "l": "Core team confirms RCA and executes remediation",
+        "a": false
+      }
+    ],
+    "financial": [
+      "Improved engineering productivity via automated correlation/RCA",
+      "Reduces downtime revenue impact by 10–20%",
+      "Cuts IT support cost by 20–30%"
+    ],
+    "operational": [
+      "Fewer P1/P2 escalations by preventing missed alerts",
+      "Faster diagnosis and proactive risk management",
+      "Cuts diagnosis time by 25–35%"
+    ],
+    "governance": [
+      "Standardised and repeatable incident investigation process",
+      "Better accountability through centralised event intelligence"
+    ],
+    "impactBadges": [
+      {
+        "l": "Service availability",
+        "d": "up"
+      },
+      {
+        "l": "Operation cost & MTTR",
+        "d": "down"
+      },
+      {
+        "l": "Event correlation / KB articles",
+        "d": "up"
+      },
+      {
+        "l": "Ticket volume",
+        "d": "down"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 19.5,
+    "productivity": ""
+  },
+  {
+    "id": "capacity",
+    "domain": "technology",
+    "pillar": "speed",
+    "status": "Live",
+    "title": "Smart Capacity Agent",
+    "dept": "Technology Ops",
+    "impact": "94% reduction in manual effort",
+    "summary": "Agentic AI pulling raw capacity data from Storage, Backup and VMware, synthesising utilisation insights, forecasting consumption and auto-raising ServiceNow tickets — replacing 90 hours of manual effort with 5.",
+    "outcomes": [
+      "94% reduction in manual effort",
+      "Proactive forecasting replaces reactive firefighting",
+      "Automated ServiceNow ticketing with owner assignment"
+    ],
+    "fromTime": "90 hrs",
+    "toTime": "5 hrs",
+    "fromSteps": [
+      "RAW data extracted manually from Storage, Backup, VMware teams",
+      "ServiceNow team manually collates into a single file",
+      "Capacity team manually analyses usage and plans actions",
+      "Team defines plan, actions assessment and publishes reports"
+    ],
+    "toSteps": [
+      {
+        "l": "RAW capacity data pulled from Storage, Backup, VMware",
+        "a": false
+      },
+      {
+        "l": "Network Capacity Analyser collates data and derives % usage",
+        "a": true
+      },
+      {
+        "l": "Forecasting agent predicts consumption and sets action thresholds",
+        "a": true
+      },
+      {
+        "l": "Ticketing agent creates ServiceNow ticket and assigns owner",
+        "a": true
+      },
+      {
+        "l": "Capacity team actions ticket and publishes report",
+        "a": false
+      }
+    ],
+    "financial": [
+      "License cost optimisation and OpEx reduction",
+      "Improved FTE productivity from reduced manual effort"
+    ],
+    "operational": [
+      "Reduced availability risk and fewer outages",
+      "Faster decision-making and issue visibility"
+    ],
+    "governance": [
+      "Chatbot-enabled self-service reporting",
+      "Centralised visibility and auditability"
+    ],
+    "impactBadges": [
+      {
+        "l": "Efficiency & availability",
+        "d": "up"
+      },
+      {
+        "l": "License & storage costs",
+        "d": "down"
+      },
+      {
+        "l": "Risk mitigation",
+        "d": "up"
+      },
+      {
+        "l": "Auditability",
+        "d": "up"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 3.5,
+    "productivity": ""
+  },
+  {
+    "id": "cdm",
+    "domain": "technology",
+    "pillar": "quality",
+    "status": "Live",
+    "title": "Cognitive Data Mapping Agent",
+    "dept": "App Development",
+    "impact": "70% Efforts saved",
+    "summary": "AI-assisted mapping that learns from approved schemas and past mappings to accurately map unmapped fields — reducing manual effort by 70%, improving data quality, and creating a reusable foundation for downstream automation across migration programmes.",
+    "outcomes": [
+      "Improved speed to market",
+      "Reduced delivery risk",
+      "Improved productivity",
+      "Data quality improvement"
+    ],
+    "fromTime": "245 Days",
+    "toTime": "70 Days",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [
+      "Reduced manual mapping effort by ~70%",
+      "Faster migration readiness across files"
+    ],
+    "governance": [
+      "Strong auditability and regulatory confidence"
+    ],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 8.75,
+    "productivity": ""
+  },
+  {
+    "id": "gonogo",
+    "domain": "technology",
+    "pillar": "quality",
+    "status": "In development",
+    "title": "Go-NoGo Agent",
+    "dept": "Infrastructure Ops",
+    "impact": "Increased operational efficiency",
+    "summary": "Autonomously troubleshoots incidents across Infra (Windows, Linux) and AMS (Reinsurance, ODM, Mainframe) — extracting ticket details, searching Quasar++ for relevant SOPs, presenting troubleshooting commands, and orchestrating remediation with human-in-the-loop approval.",
+    "outcomes": [
+      "Increased operational efficiency",
+      "Increased risk mitigation",
+      "Improved decision standardization",
+      "Improved auditability"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [
+      "Manually review the incident, log into servers, and perform initial checks",
+      "Analyze server conditions, identify symptoms such as CPU or memory spikes, and determine the likely cause",
+      "Assess root causes and recommend next steps",
+      "Manually implement the required fix and validate"
+    ],
+    "toSteps": [
+      {
+        "l": "User enters the ticket number and a mapped workflow is triggered",
+        "a": false
+      },
+      {
+        "l": "Troubleshooting agent analyzes extracted ticket details and searches Quasar++ to present relevant troubleshooting commands",
+        "a": true
+      },
+      {
+        "l": "Agent commands are approved by the human in the loop",
+        "a": false
+      },
+      {
+        "l": "Remediation agent analyzes the output, determines the appropriate remediation steps, and displays them for approval",
+        "a": true
+      },
+      {
+        "l": "Output is peer reviewed and approved by the human in the loop before ticket is updated and closed",
+        "a": false
+      }
+    ],
+    "financial": [
+      "Lower support effort and improved agent productivity",
+      "Reduced cost through faster diagnosis and resolution"
+    ],
+    "operational": [
+      "Faster incident triage and remediation",
+      "Reduced outage duration and SLA risk"
+    ],
+    "governance": [
+      "Better traceability and auditability",
+      "Human-in-the-loop control for safer execution"
+    ],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "ata",
+    "domain": "technology",
+    "pillar": "speed",
+    "status": "Live",
+    "title": "Automatic Ticket Assignment (ATA)",
+    "dept": "Infrastructure Ops",
+    "impact": "98% Productivity Improvement",
+    "summary": "Incident assignment validation ensures that IT incidents are accurately assigned to the appropriate teams based on ticket analysis from past tickets or expediting predefined rules — automating and validating the assignment process to reduce MTTR, improve SLA performance, and enhance customer experience.",
+    "outcomes": [
+      "Operational Efficiency",
+      "Improved Customer Experience",
+      "Improved SLA Performance",
+      "Faster Resolution / Speed to market"
+    ],
+    "fromTime": "5 mins",
+    "toTime": "<1 min",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [
+      "Reduced MTTR",
+      "Improved SLA performance",
+      "Reduced L1 workload"
+    ],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 14.5,
+    "productivity": ""
+  },
+  {
+    "id": "atr",
+    "domain": "technology",
+    "pillar": "speed",
+    "status": "Live",
+    "title": "Automatic Ticket Resolution",
+    "dept": "Infrastructure Ops",
+    "impact": "98% Productivity Improvement",
+    "summary": "GenAI is leveraged to do incident analysis and provides incident resolution recommendation for troubleshooting. It is deployed in myWizard with SOPs and past incident details uploaded in Quasar++ to enable intelligent, context-aware resolution.",
+    "outcomes": [],
+    "fromTime": "480 Mins",
+    "toTime": "10 Mins",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [
+      "40–70% MTTR reduction",
+      "Proactive incident prevention"
+    ],
+    "governance": [
+      "Consistent incident handling",
+      "Clear problem framing for SRE / ITSM / Ops leadership",
+      "End to end incident lifecycle coverage"
+    ],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 30,
+    "productivity": ""
+  },
+  {
+    "id": "re_net",
+    "domain": "technology",
+    "pillar": "speed",
+    "status": "Live",
+    "title": "Reverse Engineering Agent - .Net",
+    "dept": "App Development",
+    "impact": "~80% Productivity Saving",
+    "summary": "Analyses source code to inventory the application landscape, break large codebases into analyzable units, extract functional and technical insights, map business rules and dependencies back to source, and package the outputs into structured artifacts and interactive wiki documentation for transformation.",
+    "outcomes": [
+      "Increased Productivity",
+      "Reduced risk to business continuity",
+      "Knowledge Uplift",
+      "Transformation Readiness"
+    ],
+    "fromTime": "720 Days",
+    "toTime": "120 Days",
+    "fromSteps": [
+      "Receive incoming incident tickets in the support queue",
+      "Manually review ticket details to determine the likely resolver team",
+      "Check ticket completeness and correctness manually",
+      "Reassign incorrectly routed or incomplete tickets as required"
+    ],
+    "toSteps": [
+      {
+        "l": "User submits source code and available business context to trigger the reverse engineering pipeline",
+        "a": false
+      },
+      {
+        "l": "Inventory Agent processes the codebase, identifies technologies, extensions, file coverage",
+        "a": true
+      },
+      {
+        "l": "Logical Grouping & Chunking Agents along with Functional and Technical Analysis Agents extract insights",
+        "a": true
+      },
+      {
+        "l": "Traceability & Feedback Agents and Retry on Failure Agents refine outputs, map business rules",
+        "a": true
+      },
+      {
+        "l": "Artifact Packager Agent generates structured knowledge assets and wiki-ready documentation",
+        "a": true
+      }
+    ],
+    "financial": [],
+    "operational": [
+      "Accelerated knowledge capture and reverse engineering at scale",
+      "Reduced transition effort and time required",
+      "Improved visibility of the broader technology estate and system dependencies"
+    ],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 30,
+    "productivity": ""
+  },
+  {
+    "id": "ai_studio",
+    "domain": "technology",
+    "pillar": "quality",
+    "status": "In development",
+    "title": "AI Innovation Studio",
+    "dept": "Technology",
+    "impact": "AI Benefits Showcase",
+    "summary": "One stop shop showcasing measurable value across the insurance value chain and technology delivery — from underwriting to claims to autonomous ops to efficient Technology Operations.",
+    "outcomes": [
+      "90% increase in speed to market"
+    ],
+    "fromTime": "40–50 days",
+    "toTime": "5 days",
+    "fromSteps": [
+      "Analyze and Design architecture and key features",
+      "Build, Test and Deploy"
+    ],
+    "toSteps": [
+      {
+        "l": "Provide curated prompts",
+        "a": false
+      },
+      {
+        "l": "Analyze, Design, Build, Test and Deploy",
+        "a": true
+      }
+    ],
+    "financial": [],
+    "operational": [
+      "90% increase in speed to market"
+    ],
+    "governance": [],
+    "impactBadges": [
+      {
+        "l": "Time to Build",
+        "d": "down"
+      },
+      {
+        "l": "Speed & Efficiency",
+        "d": "up"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "intellisql",
+    "domain": "technology",
+    "pillar": "speed",
+    "status": "Roadmap",
+    "title": "IntelliSQL Generator",
+    "dept": "Technology",
+    "impact": "Automatically generate sql script",
+    "summary": "Translates the mapping rules from Cognitive Data Mapping Solution and generate the executable SQL scripts automatically that bridges the source and target systems, reducing the risk of human errors.",
+    "outcomes": [
+      "40% reduction in development time"
+    ],
+    "fromTime": "TBD",
+    "toTime": "TBD",
+    "fromSteps": [
+      "Map fields manually by checking all source and target tables",
+      "Review and Test all mapping"
+    ],
+    "toSteps": [
+      {
+        "l": "Provide curated prompts",
+        "a": false
+      },
+      {
+        "l": "Analyze data and Generate SQL scripts",
+        "a": true
+      },
+      {
+        "l": "Review mappings",
+        "a": false
+      },
+      {
+        "l": "Testing insert scripts",
+        "a": true
+      }
+    ],
+    "financial": [],
+    "operational": [
+      "90% proposed reduction in human errors"
+    ],
+    "governance": [],
+    "impactBadges": [
+      {
+        "l": "Time to Build",
+        "d": "down"
+      },
+      {
+        "l": "Speed & Efficiency",
+        "d": "up"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "eol_tracker",
+    "domain": "technology",
+    "pillar": "speed",
+    "status": "In development",
+    "title": "EOL Tracker",
+    "dept": "Technology",
+    "impact": "e2e view of EoL Exposure",
+    "summary": "Provides a complete Application and Component level End of Life view across all regions.",
+    "outcomes": [
+      "90% reduction in development time"
+    ],
+    "fromTime": "7 weeks",
+    "toTime": "3 days",
+    "fromSteps": [
+      "Analyze and Design architecture and key features",
+      "Build, Test and Deploy"
+    ],
+    "toSteps": [
+      {
+        "l": "Provide curated prompts",
+        "a": false
+      },
+      {
+        "l": "Analyze, Design, Build, Test and Deploy",
+        "a": true
+      }
+    ],
+    "financial": [],
+    "operational": [
+      "90% increase in speed to market",
+      "e2e exposure view enabling higher clarity and decision making"
+    ],
+    "governance": [],
+    "impactBadges": [
+      {
+        "l": "Time to Build",
+        "d": "down"
+      },
+      {
+        "l": "Speed & Efficiency",
+        "d": "up"
+      }
+    ],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f1",
+    "domain": "business",
+    "pillar": "speed",
+    "status": "In development",
+    "title": "Agentic Knowledge Search",
+    "dept": "Underwriting",
+    "impact": "Faster submission research",
+    "summary": "AI agents interpret questions, decompose into sub-parts, execute parallel searches and produce cited grounded answers — reducing SME dependency and accelerating underwriter decisions.",
+    "outcomes": [
+      "Faster submission research",
+      "Reduced SME dependency"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f2",
+    "domain": "business",
+    "pillar": "cost",
+    "status": "In development",
+    "title": "Bordereau Processing Pilot",
+    "dept": "Claims",
+    "impact": "Reduced manual processing",
+    "summary": "AI to ingest, normalise, validate and transform incoming bordereaux files covering claims, premium, policy and DUA — eliminating manual intervention and improving data accuracy.",
+    "outcomes": [
+      "Reduced manual processing",
+      "Improved data accuracy"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f3",
+    "domain": "business",
+    "pillar": "speed",
+    "status": "Roadmap",
+    "title": "Invoice Processing Agent",
+    "dept": "Claims",
+    "impact": "Accelerated settlement",
+    "summary": "Automate claims invoice processing using Q-GPT–powered agents for scalable claims modernisation across NA.",
+    "outcomes": [
+      "Accelerated claims settlement",
+      "Scalable modernisation"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f4",
+    "domain": "business",
+    "pillar": "quality",
+    "status": "Roadmap",
+    "title": "Agentic UW — E&S Property",
+    "dept": "Underwriting",
+    "impact": "Enhanced risk evaluation",
+    "summary": "Agent-led underwriting with a network of AI experts in a non-linear workflow evaluating complex E&S Property risks.",
+    "outcomes": [
+      "Enhanced risk evaluation",
+      "Faster complex risk decisions"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f5",
+    "domain": "business",
+    "pillar": "quality",
+    "status": "Roadmap",
+    "title": "Future of Claims — NA",
+    "dept": "Claims",
+    "impact": "Transformed lifecycle",
+    "summary": "Exploring how agentic AI transforms Demand Package Management, Litigation Management and key intervention points across NA claims.",
+    "outcomes": [
+      "Transformed claims lifecycle",
+      "Reduced litigation cost"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f6",
+    "domain": "technology",
+    "pillar": "cost",
+    "status": "In development",
+    "title": "Autonomous Ops Agent",
+    "dept": "Technology Ops",
+    "impact": "Reduced MTTR",
+    "summary": "Troubleshooting agent diagnoses incidents by collecting health signals, correlating anomalies and routing through human-in-loop to remediation.",
+    "outcomes": [
+      "Reduced MTTR",
+      "Lower SME dependency"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f7",
+    "domain": "technology",
+    "pillar": "speed",
+    "status": "In development",
+    "title": "Reverse Engineering — Mainframe",
+    "dept": "App Development",
+    "impact": "Accelerated modernisation",
+    "summary": "Analyses legacy code to extract application insights, generating knowledge documents that accelerate RCA and support modernisation programmes.",
+    "outcomes": [
+      "Accelerated modernisation",
+      "Reduced SME bottleneck"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f8",
+    "domain": "technology",
+    "pillar": "speed",
+    "status": "Roadmap",
+    "title": "Reinsurance Modernisation — ARAMIS",
+    "dept": "App Development",
+    "impact": "Faster migration",
+    "summary": "GenWizard automates data migration from legacy to Duck Creek by generating source-to-target mapping, SQL code and test cases.",
+    "outcomes": [
+      "Faster migration",
+      "Reduced manual mapping effort"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f9",
+    "domain": "technology",
+    "pillar": "quality",
+    "status": "Roadmap",
+    "title": "Evergreening Agent",
+    "dept": "Security",
+    "impact": "Faster patch assessment",
+    "summary": "Analyse change impact of security patching for code vulnerabilities across the application estate.",
+    "outcomes": [
+      "Improved security posture",
+      "Faster patch assessment"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  },
+  {
+    "id": "f10",
+    "domain": "technology",
+    "pillar": "quality",
+    "status": "Roadmap",
+    "title": "GitHub Copilot Spec Kit",
+    "dept": "App Development",
+    "impact": "Standardised delivery",
+    "summary": "Standardises TDLC by embedding guardrails, requirements and test strategies into a structured AI-guided project workflow.",
+    "outcomes": [
+      "Standardised delivery",
+      "Embedded AI guardrails"
+    ],
+    "fromTime": "",
+    "toTime": "",
+    "fromSteps": [],
+    "toSteps": [],
+    "financial": [],
+    "operational": [],
+    "governance": [],
+    "impactBadges": [],
+    "fteBefore": 0,
+    "fteAfter": 0,
+    "fteSavings": 0,
+    "productivity": ""
+  }
+]
