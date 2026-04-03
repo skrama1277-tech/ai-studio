@@ -276,31 +276,34 @@ export default function App() {
   // const handleFile = e => { const f = e.target.files[0]; if (!f || !uploadId) return; const id = uploadId; setUploadId(null); if (uploadType === "arch") setArchs(p => ({ ...p, [id]: { name: f.name, url: URL.createObjectURL(f), mime: f.type } })); else setVideos(p => ({ ...p, [id]: { name: f.name, url: URL.createObjectURL(f) } })); e.target.value = ""; };
   
   const handleFile = async e => {
-        const f = e.target.files[0];
-        if (!f || !uploadId) return;
-        const id = uploadId;
-        setUploadId(null);
+    const f = e.target.files[0];
+    if (!f || !uploadId) return;
+    const id = uploadId;
+    setUploadId(null);
 
-        // Get a short-lived upload URL from your Function
-        const ext  = f.name.split(".").pop();
-        const blob = `${id}-${uploadType}-${Date.now()}.${ext}`;
-        const res  = await fetch(`/api/GetSasToken?blobName=${blob}`);
-        const { uploadUrl, readUrl } = await res.json();
-
-        // Upload directly to Blob Storage
-        await fetch(uploadUrl, {
+    try {
+      const ext  = f.name.split(".").pop();
+      const blob = `${id}-${uploadType}-${Date.now()}.${ext}`;
+      const res  = await fetch(`/api/GetSasToken?blobName=${blob}`);
+      const data = await res.json();
+      if (data.uploadUrl && data.readUrl) {
+        await fetch(data.uploadUrl, {
           method: "PUT",
           headers: { "x-ms-blob-type": "BlockBlob", "Content-Type": f.type },
           body: f
         });
-
-        // Store the permanent read URL instead of the local object URL
-        if (uploadType === "arch") {
-          setArchs(p => ({ ...p, [id]: { name: f.name, url: readUrl, mime: f.type } }));
-        } else {
-          setVideos(p => ({ ...p, [id]: { name: f.name, url: readUrl } }));
-        }
-        e.target.value = "";
+        if (uploadType === "arch") setArchs(p => ({ ...p, [id]: { name: f.name, url: data.readUrl, mime: f.type } }));
+        else setVideos(p => ({ ...p, [id]: { name: f.name, url: data.readUrl } }));
+      } else {
+        throw new Error("No SAS URL");
+      }
+    } catch {
+      // Fallback: use local object URL (works without Azure)
+      const localUrl = URL.createObjectURL(f);
+      if (uploadType === "arch") setArchs(p => ({ ...p, [id]: { name: f.name, url: localUrl, mime: f.type } }));
+      else setVideos(p => ({ ...p, [id]: { name: f.name, url: localUrl } }));
+    }
+    e.target.value = "";
   };
 
   const removeVideo = (e, id) => { if (!isAdmin) return; e.stopPropagation(); setVideos(p => { const n={...p}; delete n[id]; return n; }); };
