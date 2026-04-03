@@ -13,25 +13,20 @@ function toTitleCase(str) {
   });
 }
 
-// ── SHAREPOINT CONFIG ─────────────────────────────────────────────────────
-const SP_SITE = "https://ts.accenture.com/sites/TheInnovationNest-nurturingideasintosolutions";
-const DATA_URL = process.env.PUBLIC_URL + "/data.json";
-const SP_LIST = "BEQAIPortal";
-const SP_API  = `${SP_SITE}/_api/lists/getbytitle('${SP_LIST}')/items`;
-const SP_HDR  = { "Accept": "application/json;odata=verbose", "Content-Type": "application/json;odata=verbose" };
+// ── API ───────────────────────────────────────────────────────────────────
+async function fetchUseCases() {
+  const res = await fetch("/api/GetUseCases");
+  if (!res.ok) throw new Error("GetUseCases failed: " + res.status);
+  return res.json();
+}
 
-// ── GITHUB CONFIG ─────────────────────────────────────────────────────────
-const GH_REPO   = "shashankjohari/genai-hub-v5-modern";
-const GH_API    = `https://api.github.com/repos/${GH_REPO}`;
-const DATA_PATH = "public/data.json";
-
-async function pushDataJson(updatedUcs) {
-  const res = await fetch(
-    `${GH_API}/dispatches`,
-    { method: "POST", headers: { Accept: "application/vnd.github+json", "Content-Type": "application/json" },
-      body: JSON.stringify({ event_type: "sync-data", client_payload: { ucs: updatedUcs } }) }
-  );
-  if (!res.ok) throw new Error("Dispatch failed: " + res.status);
+async function saveUseCases(updatedUcs) {
+  const res = await fetch("/api/SaveUseCases", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ucs: updatedUcs })
+  });
+  if (!res.ok) throw new Error("SaveUseCases failed: " + res.status);
 }
 
 function spToUC(item) {
@@ -226,10 +221,10 @@ export default function App() {
   useEffect(() => {
     if (!authed) return;
     setSpLoading(true); setSpError(null);
-    fetch(process.env.PUBLIC_URL + "/data.json").then(r => r.json()).then(data => {
-      if (data?.ucs?.length > 0) { const spTitles = new Set(data.ucs.map(u => u.title.toLowerCase())); const localOnly = INIT_UCS.filter(u => !spTitles.has(u.title.toLowerCase())); setUcs([...data.ucs, ...localOnly]); setSpStatus("synced"); }
-      setSpLoading(false);
-    }).catch(err => { console.error("data.json load failed:", err); setSpStatus(""); setSpLoading(false); });
+    fetchUseCases().then(data => {
+      if (data?.ucs?.length > 0) { const spTitles = new Set(data.ucs.map(u => u.title.toLowerCase())); const localOnly = INIT_UCS.filter(u => !spTitles.has(u.title.toLowerCase())); setUcs([...data.ucs, ...localOnly]); }
+      setSpStatus("synced"); setSpLoading(false);
+    }).catch(err => { console.error("GetUseCases failed:", err); setSpStatus(""); setSpLoading(false); });
   }, [authed]);
 
   const filtered = useMemo(() => {
@@ -311,14 +306,14 @@ export default function App() {
 
   const saveUC = async uc => {
     if (!isAdmin) return; setSpStatus("saving"); let finalUcs;
-    try { const i = ucs.findIndex(u => u.id === uc.id); if (i >= 0) { const n = [...ucs]; n[i] = uc; finalUcs = n; } else { finalUcs = [...ucs, uc]; } setUcs(finalUcs); await pushDataJson(finalUcs); setSpStatus("synced"); }
+    try { const i = ucs.findIndex(u => u.id === uc.id); if (i >= 0) { const n = [...ucs]; n[i] = uc; finalUcs = n; } else { finalUcs = [...ucs, uc]; } setUcs(finalUcs); await saveUseCases(finalUcs); setSpStatus("synced"); }
     catch (err) { console.error("Save error:", err); setSpStatus("error"); }
     setEditUC(null); setAdmin(false);
   };
 
   const deleteUC = async id => {
     if (!isAdmin) return; setSpStatus("saving"); let finalUcs;
-    try { finalUcs = ucs.filter(u => u.id !== id); setUcs(finalUcs); await pushDataJson(finalUcs); setSpStatus("synced"); }
+    try { finalUcs = ucs.filter(u => u.id !== id); setUcs(finalUcs); await saveUseCases(finalUcs); setSpStatus("synced"); }
     catch (err) { console.error("Delete error:", err); setSpStatus("error"); }
     setEditUC(null); setAdmin(false); if (selId === id) go("catalog");
   };
