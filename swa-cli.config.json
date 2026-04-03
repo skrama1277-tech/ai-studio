@@ -4,7 +4,7 @@
       "appLocation": "/",
       "apiLocation": "api",
       "outputLocation": "dist",
-      "appBuildCommand": "npm run dist",
+      "appBuildCommand": "npm run build",
       "run": "npm start",
       "appDevserverUrl": "https://localhost:5173"
     }
