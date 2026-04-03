@@ -313,28 +313,30 @@ export default function App() {
     else setVideos(p => ({ ...p, [id]: { name: f.name, url: fileUrl } }));
 
     // Persist URL onto the UC object so it survives page refresh
-    setUcs(prev => {
-      const updated = prev.map(u => {
-        if (u.id !== id) return u;
-        return uploadType === "arch"
-          ? { ...u, archUrl: fileUrl, archName: f.name, archMime: f.type }
-          : { ...u, videoUrl: fileUrl, videoName: f.name };
-      });
-      saveUseCases(updated).catch(err => console.error("Failed to persist upload URL:", err));
-      return updated;
+    const updated = ucs.map(u => {
+      if (u.id !== id) return u;
+      return uploadType === "arch"
+        ? { ...u, archUrl: fileUrl, archName: f.name, archMime: f.type }
+        : { ...u, videoUrl: fileUrl, videoName: f.name };
     });
+    setUcs(updated);
+    await saveUseCases(updated).catch(err => console.error("Failed to persist upload URL:", err));
     e.target.value = "";
   };
 
   const removeVideo = (e, id) => {
     if (!isAdmin) return; e.stopPropagation();
     setVideos(p => { const n={...p}; delete n[id]; return n; });
-    setUcs(prev => { const updated = prev.map(u => u.id !== id ? u : { ...u, videoUrl: undefined, videoName: undefined }); saveUseCases(updated).catch(console.error); return updated; });
+    const updated = ucs.map(u => u.id !== id ? u : { ...u, videoUrl: undefined, videoName: undefined });
+    setUcs(updated);
+    saveUseCases(updated).catch(console.error);
   };
   const removeArch = (e, id) => {
     if (!isAdmin) return; e.stopPropagation();
     setArchs(p => { const n={...p}; delete n[id]; return n; });
-    setUcs(prev => { const updated = prev.map(u => u.id !== id ? u : { ...u, archUrl: undefined, archName: undefined, archMime: undefined }); saveUseCases(updated).catch(console.error); return updated; });
+    const updated = ucs.map(u => u.id !== id ? u : { ...u, archUrl: undefined, archName: undefined, archMime: undefined });
+    setUcs(updated);
+    saveUseCases(updated).catch(console.error);
   };
 
   const saveUC = async uc => {
