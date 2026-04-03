@@ -13,9 +13,9 @@ module.exports = async function (context, req) {
   const key       = process.env.STORAGE_KEY;
   const container = process.env.STORAGE_CONTAINER;
   const cred      = new StorageSharedKeyCredential(account, key);
-  console.log("api-GetSasToken");
+  console.log("api-GetSasToken: index.js");
 
-  // Upload SAS (PUT) — 15 min
+  // Upload SAS (PUT) — 15 min1
   const uploadSas = generateBlobSASQueryParameters({
     containerName: container, blobName,
     permissions: BlobSASPermissions.parse("rcw"),
