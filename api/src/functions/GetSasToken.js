@@ -18,6 +18,8 @@ app.http('GetSasToken', {
     const key       = process.env.STORAGE_KEY;
     const container = process.env.STORAGE_CONTAINER;
 
+    console.log("scr-functions-GetSasToken");
+
     if (!account || !key || !container) {
       return { status: 500, body: "Storage not configured" };
     }
