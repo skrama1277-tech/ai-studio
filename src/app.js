@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 
-const PASSWORD   = "AI@BEQ";
-const ADMIN_PIN  = "AI@BEQ";
+const PASSWORD   = "AI@QBE";
+const ADMIN_PIN  = "AI@QBE";
 
 // ── HELPERS ───────────────────────────────────────────────────────────────
 function toTitleCase(str) {
@@ -186,8 +186,8 @@ const INIT_FTE_ROWS = [
 export default function App() {
   const [authed, setAuthed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [pwd, setPwd] = useState("AI@BEQ");
-  const [pin, setPin] = useState("AI@BEQ");
+  const [pwd, setPwd] = useState("");
+  const [pin, setPin] = useState("");
   const [pwdErr, setPwdErr] = useState(false);
   const [pinErr, setPinErr] = useState(false);
   const [dk, setDk] = useState(false);
@@ -518,7 +518,7 @@ function JourneyPage({ t, dk, go }) {
       <button onClick={()=>go("home")} style={{ background:t.bgCard, border:`1px solid ${t.bd}`, borderRadius:20, padding:"7px 16px", fontSize:13, color:t.tx2, display:"flex", alignItems:"center", gap:5, marginBottom:24 }}><Icon name="back" size={15} color={t.tx2} />Back</button>
       <div style={{ fontSize:12, fontWeight:600, color:t.accent, letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:8 }}>Enterprise AI Journey</div>
       <h2 style={{ fontSize:"clamp(26px,4vw,44px)", fontWeight:800, letterSpacing:"-0.03em", marginBottom:8 }}>{toTitleCase("From Experimentation to Exponential Impact")}</h2>
-      <p style={{ fontSize:16, color:t.tx2, marginBottom:32, maxWidth:600, lineHeight:1.65 }}>BEQ's progression from early AI pilots to scalable, agentic solutions delivering measurable impact across the enterprise.</p>
+      <p style={{ fontSize:16, color:t.tx2, marginBottom:32, maxWidth:600, lineHeight:1.65 }}>QBE's progression from early AI pilots to scalable, agentic solutions delivering measurable impact across the enterprise.</p>
       <div className="card" style={{ padding:"24px clamp(16px,3vw,32px) 20px", marginBottom:22 }}>
         <div style={{ position:"relative", height:5, background:t.bgDeep, borderRadius:3, margin:"0 8% 22px" }}><div style={{ position:"absolute", top:0, left:0, height:"100%", borderRadius:3, background:`linear-gradient(90deg,${t.green},${active>=1?t.blue:t.green},${active>=2?t.purple:t.green})`, width:active===0?"0%":active===1?"50%":"100%", transition:"width 0.6s cubic-bezier(.4,0,.2,1)" }} />{JOURNEY.map((_,i) => { const pos=i===0?0:i===1?50:100; return <div key={i} onClick={()=>setActive(i)} style={{ position:"absolute", top:"50%", left:`${pos}%`, transform:"translate(-50%,-50%)", cursor:"pointer", zIndex:2 }}><div style={{ width:18, height:18, borderRadius:"50%", background:i<=active?phC[i]:t.bgDeep, border:`3px solid ${t.bgCard}`, transition:"all 0.4s", boxShadow:i<=active?`0 0 0 3px ${phC[i]}33`:"none" }} /></div>; })}</div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:10 }}>{JOURNEY.map((ph,i) => <button key={i} onClick={()=>setActive(i)} style={{ background:active===i?phB[i]:t.bgMuted, border:`1.5px solid ${active===i?phC[i]+"66":t.bd}`, borderRadius:12, padding:"18px 18px 16px", textAlign:"left", transition:"all 0.2s" }}><div style={{ marginBottom:12 }}><PhaseIcon phase={i} color={phC[i]} size={32} /></div><div style={{ fontSize:14, fontWeight:700, color:phC[i], marginBottom:3 }}>{ph.phase}</div><div style={{ fontSize:16, fontWeight:700, color:t.tx1, marginBottom:3, lineHeight:1.3 }}>{ph.label}</div><div style={{ fontSize:13, color:t.tx3, fontStyle:"italic" }}>{ph.sub}</div></button>)}</div>
