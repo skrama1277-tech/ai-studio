@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 
 const PASSWORD   = "AI@QBE";
-const ADMIN_PIN  = "AI@QBE";
+const ADMIN_PIN  = "AIADMIN@QBE";
 
 // ── HELPERS ───────────────────────────────────────────────────────────────
 function toTitleCase(str) {
@@ -133,17 +133,17 @@ function catalogSort(a, b) {
 
 // ── SOLUTIONS BY ROLE DATA ────────────────────────────────────────────────
 const ROLE_CARDS = [
-  { id:"underwriting", label:"Underwriting", img:"https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80", headline:"Assess risk faster, bind with confidence", p1:"Manual underwriting buries teams in submission data when they should be focused on strategic risks, broker relationships and portfolio growth across the London market and beyond.", p2:"AI automates intake, scores risk against appetite and generates quote recommendations — so underwriters can price smarter, bind faster and compete from a position of strength." },
-  { id:"claims", label:"Claims", img:"https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80", headline:"Resolve claims smarter, settle faster", p1:"Claims teams juggle manual bordereaux, slow FNOL triage and fragmented invoice processing — costing time and accuracy at every stage of the lifecycle.", p2:"AI-powered classification, validation and agent-led settlement processing cut cycle times across NA and London market operations — letting adjusters focus on complex, high-value claims." },
-  { id:"enterprise", label:"Enterprise function", img:"https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80", headline:"Empower every team with governed AI", p1:"Legal, Risk and Data Science teams resort to unsanctioned public LLMs — creating data leakage risk and zero audit trail across the enterprise.", p2:"Q-GPT delivers secure, persona-based AI with curated prompt libraries and full governance — reducing effort by 75% across 2,237 users without compromising data security." },
-  { id:"technology", label:"Technology", img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80", headline:"Autonomous ops, intelligent delivery", p1:"Technology teams spend hours manually correlating events, diagnosing root cause and processing capacity data across disparate monitoring platforms.", p2:"Agentic AI ingests, deduplicates and correlates events in real time — cutting diagnosis from 5 hours to 30 minutes and auto-raising ServiceNow tickets at scale." },
+  { id:"underwriting", label:"Underwriting", domain:"business", deptSearch:"Underwriting", img:"https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80", headline:"Assess risk faster, bind with confidence", p1:"Manual underwriting buries teams in submission data when they should be focused on strategic risks, broker relationships and portfolio growth across the London market and beyond.", p2:"AI automates intake, scores risk against appetite and generates quote recommendations — so underwriters can price smarter, bind faster and compete from a position of strength." },
+  { id:"claims", label:"Claims", domain:"business", deptSearch:"Claims", img:"https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80", headline:"Resolve claims smarter, settle faster", p1:"Claims teams juggle manual bordereaux, slow FNOL triage and fragmented invoice processing — costing time and accuracy at every stage of the lifecycle.", p2:"AI-powered classification, validation and agent-led settlement processing cut cycle times across NA and London market operations — letting adjusters focus on complex, high-value claims." },
+  { id:"enterprise", label:"Enterprise function", domain:"business", deptSearch:"Enterprise", img:"https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80", headline:"Empower every team with governed AI", p1:"Legal, Risk and Data Science teams resort to unsanctioned public LLMs — creating data leakage risk and zero audit trail across the enterprise.", p2:"Q-GPT delivers secure, persona-based AI with curated prompt libraries and full governance — reducing effort by 75% across 2,237 users without compromising data security." },
+  { id:"technology", label:"Technology", domain:"technology", deptSearch:"Technology Ops", img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80", headline:"Autonomous ops, intelligent delivery", p1:"Technology teams spend hours manually correlating events, diagnosing root cause and processing capacity data across disparate monitoring platforms.", p2:"Agentic AI ingests, deduplicates and correlates events in real time — cutting diagnosis from 5 hours to 30 minutes and auto-raising ServiceNow tickets at scale." },
 ];
 
 // ── STATIC DATA ───────────────────────────────────────────────────────────
 const METRICS = [
   { value: "~65%", label: "Reduction in time-to-quote", pillar: "speed" },
   { value: "100%", label: "Submissions assessed", pillar: "quality" },
-  { value: "55%", label: "Increase in bound policies, NA", pillar: "speed" },
+  { value: "55%", label: "Increase in bound policies, NAO", pillar: "speed" },
   { value: "~$10M", label: "NB GWP uplift, Cyber", pillar: "cost" },
   { value: "94%", label: "CSAT score (+9 pt uplift)", pillar: "quality" },
   { value: "112.75", label: "FTE productivity savings", pillar: "cost", icon: "person" },
@@ -393,7 +393,7 @@ export default function App() {
       {!spLoading && spStatus==="saving" && <div style={{ background:t.amberBg, borderBottom:`1px solid ${t.amberBd}`, padding:"8px 24px", display:"flex", alignItems:"center", gap:8, fontSize:13, color:t.amber }}><Icon name="sync" size={13} color={t.amber} style={{ animation:"spin 1s linear infinite" }} />Saving…</div>}
       <Nav t={t} dk={dk} setDk={setDk} view={view} go={go} isCat={isCat} isAdmin={isAdmin} onAdmin={()=>{setEditUC(null);setAdmin(true);}} search={search} setSearch={s=>{setSearch(s);if(view!=="catalog")go("catalog");}} chatOpen={chatOpen} setChat={setChat} spStatus={spStatus} />
       <div style={{ maxWidth:1160, margin:"0 auto", padding:"0 clamp(16px,3vw,40px)" }}>
-        {view==="home" && <HomePage t={t} dk={dk} ucs={ucs} videos={videos} archs={archs} isAdmin={isAdmin} onUpload={handleUpload} onArchUpload={handleArchUpload} go={go} />}
+        {view==="home" && <HomePage t={t} dk={dk} ucs={ucs} videos={videos} archs={archs} isAdmin={isAdmin} onUpload={handleUpload} onArchUpload={handleArchUpload} go={go} goRole={rc=>{setFD(rc.domain);setSearch(rc.deptSearch||"");setFP(["all"]);go("catalog");}} />}
         {view==="journey" && <JourneyPage t={t} dk={dk} go={go} />}
         {view==="catalog" && <CatalogPage t={t} dk={dk} ucs={filtered} allUcs={ucs} videos={videos} archs={archs} isAdmin={isAdmin} onUpload={handleUpload} onArchUpload={handleArchUpload} search={search} setSearch={setSearch} fDomain={fDomain} setFD={setFD} fPillar={fPillar} setFP={setFP} fStatus={fStatus} setFS={setFS} go={go} onEdit={uc=>{setEditUC(uc);setAdmin(true);}} />}
         {view==="detail" && selUC && <DetailPage t={t} dk={dk} uc={selUC} videos={videos} archs={archs} isAdmin={isAdmin} onUpload={handleUpload} onArchUpload={handleArchUpload} onRemove={removeVideo} onRemoveArch={removeArch} go={go} onEdit={()=>{setEditUC(selUC);setAdmin(true);}} onDelete={deleteUC} />}
@@ -437,7 +437,7 @@ function Nav({ t, dk, setDk, view, go, isCat, isAdmin, onAdmin, search, setSearc
 }
 
 // ── SOLUTIONS BY ROLE — HX-STYLE ACCORDION ────────────────────────────────
-function SolutionsByRole({ t, dk, go }) {
+function SolutionsByRole({ t, dk, go, goRole }) {
   const [active, setActive] = useState(0);
   const pillBg = dk ? "rgba(0,48,87,0.85)" : "rgba(0,48,87,0.7)";
   const txtBg = dk ? t.bgCard : t.bgMuted;
@@ -456,7 +456,7 @@ function SolutionsByRole({ t, dk, go }) {
                   <p style={{ fontSize:14, color:t.tx2, lineHeight:1.78, marginBottom:12 }}>{rc.p1}</p>
                   <p style={{ fontSize:14, color:t.tx2, lineHeight:1.78, marginBottom:0 }}>{rc.p2}</p>
                   <div style={{ flex:1, minHeight:16 }} />
-                  <button onClick={()=>go("catalog")} style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"11px 22px", borderRadius:24, fontSize:13, fontWeight:600, color:t.tx1, border:`1.5px solid ${btnBd}`, cursor:"pointer", background:"transparent", marginTop:20 }}>Learn how <Icon name="roi" size={14} color={t.tx1} /></button>
+                  <button onClick={()=>goRole(rc)} style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"11px 22px", borderRadius:24, fontSize:13, fontWeight:600, color:t.tx1, border:`1.5px solid ${btnBd}`, cursor:"pointer", background:"transparent", marginTop:20 }}>Learn how <Icon name="roi" size={14} color={t.tx1} /></button>
                 </div>
               </div>
               <div onMouseEnter={()=>setActive(i)} onClick={()=>setActive(i)} style={{ position:"relative", borderRadius:16, overflow:"hidden", cursor:"pointer", minWidth:0, flex:isActive?"3.5 1 0%":"1.2 1 0%", transition:"flex 0.6s cubic-bezier(.4,0,.2,1)" }}>
@@ -474,7 +474,7 @@ function SolutionsByRole({ t, dk, go }) {
 }
 
 // ── HOME PAGE ─────────────────────────────────────────────────────────────
-function HomePage({ t, dk, ucs, videos, archs, isAdmin, onUpload, onArchUpload, go }) {
+function HomePage({ t, dk, ucs, videos, archs, isAdmin, onUpload, onArchUpload, go, goRole }) {
   const live = ucs.filter(u => u.status === "Live");
   const liveCount = live.length, inDevCount = ucs.filter(u => u.status === "In development").length, roadmapCount = ucs.filter(u => u.status === "Roadmap").length, totalCount = ucs.length;
   return (
@@ -490,14 +490,14 @@ function HomePage({ t, dk, ucs, videos, archs, isAdmin, onUpload, onArchUpload, 
             { value: liveCount, label: "Live in production", icon: "check", color: t.green },
             { value: inDevCount, label: "In development", icon: "bolt", color: t.blue },
             { value: roadmapCount, label: "On roadmap", icon: "journey", color: t.purple },
-            { value: "55%", label: "Increase in bound policies, NA", icon: "speed", color: t.blue },
-            { value: "~$10M", label: "NB GWP uplift, Cyber", icon: "cost", color: t.green },
-            { value: "94%", label: "CSAT score (+9 pt uplift)", icon: "star", color: t.amber },
+            { value: "55%", label: "Increase in bound policies, NAO", icon: "speed", color: t.blue },
+            { value: "~$10M", label: "New Business GWP uplift, Cyber", icon: "cost", color: t.green },
+            { value: "94%", label: "CSAT score &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (+9 pt uplift)", icon: "star", color: t.amber },
             { value: "112.75", label: "FTE productivity savings", icon: "person", color: t.green },
           ].map((m,i) => <div key={rep+"_"+i} style={{ display:"flex", alignItems:"center", gap:10, padding:"0 36px", borderRight:`1px solid ${t.bd}` }}><Icon name={m.icon} size={16} color={m.color} /><span style={{ fontSize:24, fontWeight:800, color:m.color }}>{m.value}</span><span style={{ fontSize:13, color:t.tx2, maxWidth:140, lineHeight:1.4 }}>{m.label}</span></div>))}
         </div>
       </div>
-      <SolutionsByRole t={t} dk={dk} go={go} />
+      <SolutionsByRole t={t} dk={dk} go={go} goRole={goRole} />
       <div className="fade">
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:14 }}><SLabel t={t}>{toTitleCase("Live Solutions")}</SLabel><button onClick={()=>go("catalog")} style={{ background:"none", border:"none", fontSize:13, color:t.accent, fontWeight:600, display:"flex", alignItems:"center", gap:4 }}>View all <Icon name="catalog" size={13} color={t.accent} /></button></div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(260px,1fr))", gap:12 }}>
@@ -601,31 +601,33 @@ function DonutChart({ t, live, inDev, roadmap }) {
 // ── CATALOG PAGE ──────────────────────────────────────────────────────────
 function CatalogPage({ t, dk, ucs, allUcs, videos, archs, isAdmin, onUpload, onArchUpload, search, setSearch, fDomain, setFD, fPillar, setFP, fStatus, setFS, go, onEdit }) {
   const [tableMode,setTableMode]=useState(false);
+  const [sortKey,setSortKey]=useState(null);
+  const [sortDir,setSortDir]=useState("asc");
+  const handleSort=col=>{if(sortKey===col){setSortDir(d=>d==="asc"?"desc":"asc");}else{setSortKey(col);setSortDir("asc");}};
+  const SORT_MAP={Title:"title",Department:"dept",Status:"status",Pillar:"pillar",Impact:"impact"};
+  const sortedUcs=useMemo(()=>{if(!sortKey)return ucs;const key=SORT_MAP[sortKey];return[...ucs].sort((a,b)=>{const av=(a[key]||"").toLowerCase(),bv=(b[key]||"").toLowerCase();return sortDir==="asc"?av.localeCompare(bv):bv.localeCompare(av);});},[ucs,sortKey,sortDir]);
   return (
     <div style={{ padding:"28px 0 60px" }} className="fade">
       <h2 style={{ fontSize:24, fontWeight:700, letterSpacing:"-0.02em", marginBottom:6 }}>Use Case Catalog</h2>
       <p style={{ fontSize:16, color:t.tx2, marginBottom:20 }}>All AI initiatives — filter by domain, pillar or status.</p>
 
-      <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:10, alignItems:"center" }}>
-        <span style={{ fontSize:13, fontWeight:700, color:t.tx1, marginRight:2 }}>Domain:</span>
-        {[["all","All"],["business","Business"],["technology","Technology"]].map(([v,l])=><button key={v} className={`tbtn${fDomain===v?" on":""}`} onClick={()=>setFD(v)}>{l}</button>)}
-      </div>
+      <div style={{ display:"grid", gridTemplateColumns:"64px 1fr", gap:"8px 0", marginBottom:14, alignItems:"center" }}>
+        <span style={{ fontSize:13, fontWeight:700, color:t.tx1 }}>Domain:</span>
+        <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>{[["all","All"],["business","Business"],["technology","Technology"]].map(([v,l])=><button key={v} className={`tbtn${fDomain===v?" on":""}`} onClick={()=>setFD(v)}>{l}</button>)}</div>
 
-      <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:10, alignItems:"center" }}>
-        <span style={{ fontSize:13, fontWeight:700, color:t.tx1, marginRight:2 }}>Pillar:</span>
-        {[["all","All"],...PILLARS.map(p=>[p.id,p.label])].map(([v,l])=>{const isAll=v==="all";const active=isAll?fPillar.length===0||fPillar[0]==="all":Array.isArray(fPillar)&&fPillar.includes(v);const handlePillar=()=>{if(isAll){setFP(["all"]);return;}const cur=Array.isArray(fPillar)&&fPillar[0]!=="all"?fPillar:[];const next=cur.includes(v)?cur.filter(x=>x!==v):[...cur,v];setFP(next.length?next:["all"]);};return <button key={v} className={`tbtn${active?" on":""}`} onClick={handlePillar}>{l}</button>;})}
-      </div>
+        <span style={{ fontSize:13, fontWeight:700, color:t.tx1 }}>Pillar:</span>
+        <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>{[["all","All"],...PILLARS.map(p=>[p.id,p.label])].map(([v,l])=>{const isAll=v==="all";const active=isAll?fPillar.length===0||fPillar[0]==="all":Array.isArray(fPillar)&&fPillar.includes(v);const handlePillar=()=>{if(isAll){setFP(["all"]);return;}const cur=Array.isArray(fPillar)&&fPillar[0]!=="all"?fPillar:[];const next=cur.includes(v)?cur.filter(x=>x!==v):[...cur,v];setFP(next.length?next:["all"]);};return <button key={v} className={`tbtn${active?" on":""}`} onClick={handlePillar}>{l}</button>;})}</div>
 
-      <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:14, alignItems:"center" }}>
-        <span style={{ fontSize:13, fontWeight:700, color:t.tx1, marginRight:2 }}>Status:</span>
-        {["all","Live","In development","Roadmap"].map(s=><button key={s} className={`tbtn${fStatus===s?" on":""}`} onClick={()=>setFS(s)}>{s==="all"?"All":s}</button>)}
-        <div style={{ flex:1 }} />
+        <span style={{ fontSize:13, fontWeight:700, color:t.tx1 }}>Status:</span>
+        <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>{["all","Live","In development","Roadmap"].map(s=><button key={s} className={`tbtn${fStatus===s?" on":""}`} onClick={()=>setFS(s)}>{s==="all"?"All":s}</button>)}</div>
+      </div>
+      <div style={{ display:"flex", justifyContent:"flex-end", marginBottom:14 }}>
         <button onClick={()=>setTableMode(m=>!m)} style={{ background:"transparent", border:`1px solid ${t.bd}`, borderRadius:20, padding:"6px 12px", fontSize:13, color:t.tx2, display:"flex", alignItems:"center", gap:5 }}><Icon name={tableMode?"grid":"table"} size={14} color={t.tx3} />{tableMode?"Cards":"Table"}</button>
       </div>
 
       <div style={{ fontSize:13, color:t.tx3, marginBottom:14 }}>{ucs.length} of {allUcs.length} use cases</div>
       {ucs.length===0?<div className="card" style={{ padding:44, textAlign:"center" }}><Icon name="search" size={26} color={t.tx4} style={{ margin:"0 auto 10px" }} /><div style={{ fontSize:15, color:t.tx3 }}>No use cases match the current filters.</div></div>
-      :tableMode?<div style={{ overflowX:"auto" }}><table style={{ width:"100%", borderCollapse:"collapse", fontSize:14 }}><thead><tr style={{ borderBottom:`1px solid ${t.bd}` }}>{["Title","Department","Status","Pillar","Impact"].map((l,ki)=><th key={ki} style={{ padding:"11px 14px", textAlign:"left", fontWeight:600, color:t.tx2, whiteSpace:"nowrap", userSelect:"none" }}>{l}</th>)}{isAdmin&&<th style={{ padding:"11px 14px" }}></th>}</tr></thead><tbody>{ucs.map(uc=>{const sc=SC(t,uc.status);const pc=PC(t,uc.pillar);const pil=PILLARS.find(p=>p.id===uc.pillar);return<tr key={uc.id} onClick={()=>go("detail",uc.id)} style={{ borderBottom:`1px solid ${t.bd}`, cursor:"pointer", transition:"background 0.15s" }} onMouseEnter={e=>e.currentTarget.style.background=t.bgMuted} onMouseLeave={e=>e.currentTarget.style.background="transparent"}><td style={{ padding:"11px 14px", fontWeight:500 }}>{uc.title}</td><td style={{ padding:"11px 14px", color:t.tx2 }}>{uc.dept}</td><td style={{ padding:"11px 14px" }}><span style={{ background:sc.bg, color:sc.tx, fontSize:11, fontWeight:500, padding:"3px 11px", borderRadius:20, display:"inline-flex", alignItems:"center", gap:5, whiteSpace:"nowrap" }}>{uc.status==="Live"&&<span style={{ width:5, height:5, borderRadius:"50%", background:sc.tx, animation:"pulse 2s infinite" }} />}{uc.status}</span></td><td style={{ padding:"11px 14px" }}><span style={{ background:pc.bg, color:pc.tx, fontSize:11, fontWeight:500, padding:"3px 11px", borderRadius:20, display:"inline-flex", alignItems:"center", gap:4, whiteSpace:"nowrap" }}><Icon name={pil?.iconName||"star"} size={11} color={pc.tx} />{pil?.label}</span></td><td style={{ padding:"11px 14px", color:t.tx2, fontSize:13 }}>{uc.impact}</td>{isAdmin&&<td style={{ padding:"11px 14px" }}><button onClick={e=>{e.stopPropagation();onEdit(uc);}} style={{ background:"none", border:`1px solid ${t.bd}`, borderRadius:20, padding:"4px 11px", fontSize:11, color:t.tx3, display:"flex", alignItems:"center", gap:4 }}><Icon name="edit" size={12} color={t.tx3} />Edit</button></td>}</tr>;})}</tbody></table></div>
+      :tableMode?<div style={{ overflowX:"auto" }}><table style={{ width:"100%", borderCollapse:"collapse", fontSize:14 }}><thead><tr style={{ borderBottom:`1px solid ${t.bd}` }}>{["Title","Department","Status","Pillar","Impact"].map((l,ki)=>{const active=sortKey===l;return<th key={ki} onClick={()=>handleSort(l)} style={{ padding:"11px 14px", textAlign:"left", fontWeight:600, color:active?t.accent:t.tx2, whiteSpace:"nowrap", userSelect:"none", cursor:"pointer" }}><span style={{ display:"inline-flex", alignItems:"center", gap:4 }}>{l}{active?<Icon name={sortDir==="asc"?"arrowUp":"arrowDn"} size={12} color={t.accent} />:<span style={{ opacity:0.25 }}><Icon name="arrowUp" size={12} color={t.tx3} /></span>}</span></th>;})}{isAdmin&&<th style={{ padding:"11px 14px" }}></th>}</tr></thead><tbody>{sortedUcs.map(uc=>{const sc=SC(t,uc.status);const pc=PC(t,uc.pillar);const pil=PILLARS.find(p=>p.id===uc.pillar);return<tr key={uc.id} onClick={()=>go("detail",uc.id)} style={{ borderBottom:`1px solid ${t.bd}`, cursor:"pointer", transition:"background 0.15s" }} onMouseEnter={e=>e.currentTarget.style.background=t.bgMuted} onMouseLeave={e=>e.currentTarget.style.background="transparent"}><td style={{ padding:"11px 14px", fontWeight:500 }}>{uc.title}</td><td style={{ padding:"11px 14px", color:t.tx2 }}>{uc.dept}</td><td style={{ padding:"11px 14px" }}><span style={{ background:sc.bg, color:sc.tx, fontSize:11, fontWeight:500, padding:"3px 11px", borderRadius:20, display:"inline-flex", alignItems:"center", gap:5, whiteSpace:"nowrap" }}>{uc.status==="Live"&&<span style={{ width:5, height:5, borderRadius:"50%", background:sc.tx, animation:"pulse 2s infinite" }} />}{uc.status}</span></td><td style={{ padding:"11px 14px" }}><span style={{ background:pc.bg, color:pc.tx, fontSize:11, fontWeight:500, padding:"3px 11px", borderRadius:20, display:"inline-flex", alignItems:"center", gap:4, whiteSpace:"nowrap" }}><Icon name={pil?.iconName||"star"} size={11} color={pc.tx} />{pil?.label}</span></td><td style={{ padding:"11px 14px", color:t.tx2, fontSize:13 }}>{uc.impact}</td>{isAdmin&&<td style={{ padding:"11px 14px" }}><button onClick={e=>{e.stopPropagation();onEdit(uc);}} style={{ background:"none", border:`1px solid ${t.bd}`, borderRadius:20, padding:"4px 11px", fontSize:11, color:t.tx3, display:"flex", alignItems:"center", gap:4 }}><Icon name="edit" size={12} color={t.tx3} />Edit</button></td>}</tr>;})}</tbody></table></div>
       :<div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))", gap:12 }}>{ucs.map((uc,i)=><UCCard key={uc.id} uc={uc} t={t} dk={dk} hasVideo={!!videos[uc.id]} hasArch={!!archs[uc.id]} isAdmin={isAdmin} onUpload={onUpload} onArchUpload={onArchUpload} onClick={()=>go("detail",uc.id)} idx={i} onEdit={isAdmin?()=>onEdit(uc):null} />)}</div>}
     </div>
   );
@@ -717,7 +719,7 @@ function AdminModal({ t, uc, ucs, onSave, onDelete, onClose, videos, archs, onUp
   const TOOLS_OPTIONS = ["GenWizard","CoPilot Suite","Claude","OpenAI"];
   const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   const CUR_YEAR = new Date().getFullYear();
-  const YEARS = Array.from({length: CUR_YEAR - 2021}, (_, i) => 2022 + i);
+  const YEARS = Array.from({length: 7}, (_, i) => CUR_YEAR - 3 + i);
   const blank={id:"uc_"+Date.now(),title:"",dept:"",domain:"business",pillars:["speed"],status:"Live",impact:"",summary:"",outcomes:[],fromSteps:[],toSteps:[],fromTime:"",toTime:"",financial:[],operational:[],governance:[],impactBadges:[],fteBefore:"",fteAfter:"",fteSavings:"",productivity:"",goLiveMonth:"",goLiveYear:"",tools:[]};
   const [form,setForm]=useState(()=>{if(!uc)return blank;return{...uc,pillars:uc.pillars||(uc.pillar?[uc.pillar]:["speed"]),tools:uc.tools||[],goLiveMonth:uc.goLiveMonth||"",goLiveYear:uc.goLiveYear||""};});
   const [oT,setOT]=useState((uc?.outcomes||[]).join("\n")); const [fT,setFT]=useState((uc?.financial||[]).join("\n"));
@@ -733,7 +735,7 @@ function AdminModal({ t, uc, ucs, onSave, onDelete, onClose, videos, archs, onUp
   const lbl={display:"block",fontSize:12,fontWeight:600,color:t.tx3,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.06em"};
   const hasVideo=!!(videos&&videos[form.id]); const hasArch=!!(archs&&archs[form.id]);
   return (
-    <div style={{ position:"fixed", inset:0, background:"rgba(0,0,0,0.45)", zIndex:100, display:"flex", alignItems:"flex-start", justifyContent:"center", paddingTop:32, overflowY:"auto" }} onClick={onClose}>
+    <div style={{ position:"fixed", inset:0, background:"rgba(0,0,0,0.45)", zIndex:100, display:"flex", alignItems:"flex-start", justifyContent:"center", paddingTop:32, overflowY:"auto" }}>
       <div onClick={e=>e.stopPropagation()} className="card fade" style={{ width:"100%", maxWidth:580, margin:"0 16px 40px", padding:28 }}>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:18 }}><div style={{ display:"flex", alignItems:"center", gap:7 }}><Icon name="edit" size={17} color={t.accent} /><h3 style={{ fontSize:18, fontWeight:700 }}>{uc?"Edit Use Case":"Add / Edit Use Case"}</h3></div><button onClick={onClose} style={{ background:"none", border:"none" }}><Icon name="close" size={17} color={t.tx3} /></button></div>
         {!uc&&<div style={{ marginBottom:14 }}><label style={lbl}>Select existing to edit</label><select onChange={e=>{if(e.target.value){load(e.target.value);}else{setForm({...blank,id:"uc_"+Date.now()});setOT("");setFT("");setOpT("");setGT("");setFsT("");setTsT("");}}} style={inp}><option value="">— New use case —</option>{ucs.map(u=><option key={u.id} value={u.id}>{u.title}</option>)}</select></div>}
@@ -741,7 +743,7 @@ function AdminModal({ t, uc, ucs, onSave, onDelete, onClose, videos, archs, onUp
         <div style={{ marginBottom:11 }}><label style={lbl}>Department</label><input value={form.dept||""} onChange={e=>s("dept",e.target.value)} style={inp} /></div>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:11 }}><div><label style={lbl}>Domain</label><select value={form.domain} onChange={e=>s("domain",e.target.value)} style={inp}><option value="business">Business</option><option value="technology">Technology</option></select></div><div><label style={lbl}>Status</label><select value={form.status} onChange={e=>s("status",e.target.value)} style={inp}><option value="Live">Live</option><option value="In development">In development</option><option value="Roadmap">Roadmap</option></select></div></div>
         <div style={{ marginBottom:11 }}><label style={lbl}>Value pillars (select all that apply)</label><div style={{ display:"flex", gap:6, flexWrap:"wrap", marginTop:2 }}>{PILLARS.map(p=>{const c=PC(t,p.id);const on=(form.pillars||[]).includes(p.id);return<button key={p.id} onClick={()=>togglePillar(p.id)} style={{ background:on?c.bg:"transparent", border:`1px solid ${on?c.tx:t.bd}`, borderRadius:20, padding:"6px 15px", fontSize:13, color:on?c.tx:t.tx2, fontWeight:on?600:400, display:"flex", alignItems:"center", gap:5, transition:"all 0.15s" }}><Icon name={p.iconName} size={12} color={on?c.tx:t.tx3} />{p.label}</button>;})}</div></div>
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:11 }}><div><label style={lbl}>Go-Live Month</label><select value={form.goLiveMonth||""} onChange={e=>s("goLiveMonth",e.target.value)} style={inp}><option value="">— Month —</option>{MONTHS.map(m=><option key={m} value={m}>{m}</option>)}</select></div><div><label style={lbl}>Go-Live Year</label><select value={form.goLiveYear||CUR_YEAR} onChange={e=>s("goLiveYear",e.target.value)} style={inp}>{YEARS.map(y=><option key={y} value={y}>{y}</option>)}</select></div></div>
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:11 }}><div><label style={lbl}>Go-Live Month</label><select value={form.goLiveMonth||""} onChange={e=>s("goLiveMonth",e.target.value)} style={inp}><option value="">— Month —</option>{MONTHS.map(m=><option key={m} value={m}>{m}</option>)}</select></div><div><label style={lbl}>Go-Live Year</label><select value={form.goLiveYear||""} onChange={e=>s("goLiveYear",e.target.value)} style={inp}><option value="">— Year —</option>{YEARS.map(y=><option key={y} value={y}>{y}</option>)}</select></div></div>
         <div style={{ marginBottom:11 }}><label style={lbl}>Tools</label><div style={{ display:"flex", gap:6, flexWrap:"wrap", marginTop:2 }}>{TOOLS_OPTIONS.map(tool=>{const on=(form.tools||[]).includes(tool);return<button key={tool} onClick={()=>toggleTool(tool)} style={{ background:on?t.accentBg:"transparent", border:`1px solid ${on?t.accent:t.bd}`, borderRadius:20, padding:"5px 14px", fontSize:13, color:on?t.accent:t.tx2, fontWeight:on?600:400, transition:"all 0.15s" }}>{tool}</button>;})}</div></div>
         <div style={{ marginBottom:11 }}><label style={lbl}>Impact label</label><input value={form.impact||""} onChange={e=>s("impact",e.target.value)} style={inp} placeholder="e.g. 65% faster · 55% more bound" /></div>
         <div style={{ marginBottom:11 }}><label style={lbl}>Summary</label><textarea value={form.summary||""} onChange={e=>s("summary",e.target.value)} rows={3} style={{ ...inp, resize:"vertical", lineHeight:1.5 }} /></div>
