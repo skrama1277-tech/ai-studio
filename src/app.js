@@ -222,7 +222,19 @@ export default function App() {
     if (!authed) return;
     setSpLoading(true); setSpError(null);
     fetchUseCases().then(data => {
-      if (data?.ucs?.length > 0) { const spTitles = new Set(data.ucs.map(u => u.title.toLowerCase())); const localOnly = INIT_UCS.filter(u => !spTitles.has(u.title.toLowerCase())); setUcs([...data.ucs, ...localOnly]); }
+      if (data?.ucs?.length > 0) {
+        const spTitles = new Set(data.ucs.map(u => u.title.toLowerCase()));
+        const localOnly = INIT_UCS.filter(u => !spTitles.has(u.title.toLowerCase()));
+        const merged = [...data.ucs, ...localOnly];
+        setUcs(merged);
+        // Rebuild archs/videos from persisted UC fields
+        const a = {}, v = {};
+        merged.forEach(u => {
+          if (u.archUrl) a[u.id] = { url: u.archUrl, name: u.archName || "", mime: u.archMime || "image/png" };
+          if (u.videoUrl) v[u.id] = { url: u.videoUrl, name: u.videoName || "" };
+        });
+        setArchs(a); setVideos(v);
+      }
       setSpStatus("synced"); setSpLoading(false);
     }).catch(err => { console.error("GetUseCases failed:", err); setSpStatus(""); setSpLoading(false); });
   }, [authed]);
@@ -276,6 +288,7 @@ export default function App() {
     const id = uploadId;
     setUploadId(null);
 
+    let fileUrl = null;
     try {
       const ext  = f.name.split(".").pop();
       const blob = `${id}-${uploadType}-${Date.now()}.${ext}`;
@@ -287,22 +300,42 @@ export default function App() {
           headers: { "x-ms-blob-type": "BlockBlob", "Content-Type": f.type },
           body: f
         });
-        if (uploadType === "arch") setArchs(p => ({ ...p, [id]: { name: f.name, url: data.readUrl, mime: f.type } }));
-        else setVideos(p => ({ ...p, [id]: { name: f.name, url: data.readUrl } }));
+        fileUrl = data.readUrl;
       } else {
         throw new Error("No SAS URL");
       }
     } catch {
-      // Fallback: use local object URL (works without Azure)
-      const localUrl = URL.createObjectURL(f);
-      if (uploadType === "arch") setArchs(p => ({ ...p, [id]: { name: f.name, url: localUrl, mime: f.type } }));
-      else setVideos(p => ({ ...p, [id]: { name: f.name, url: localUrl } }));
+      fileUrl = URL.createObjectURL(f);
     }
+
+    // Update in-memory state
+    if (uploadType === "arch") setArchs(p => ({ ...p, [id]: { name: f.name, url: fileUrl, mime: f.type } }));
+    else setVideos(p => ({ ...p, [id]: { name: f.name, url: fileUrl } }));
+
+    // Persist URL onto the UC object so it survives page refresh
+    setUcs(prev => {
+      const updated = prev.map(u => {
+        if (u.id !== id) return u;
+        return uploadType === "arch"
+          ? { ...u, archUrl: fileUrl, archName: f.name, archMime: f.type }
+          : { ...u, videoUrl: fileUrl, videoName: f.name };
+      });
+      saveUseCases(updated).catch(err => console.error("Failed to persist upload URL:", err));
+      return updated;
+    });
     e.target.value = "";
   };
 
-  const removeVideo = (e, id) => { if (!isAdmin) return; e.stopPropagation(); setVideos(p => { const n={...p}; delete n[id]; return n; }); };
-  const removeArch = (e, id) => { if (!isAdmin) return; e.stopPropagation(); setArchs(p => { const n={...p}; delete n[id]; return n; }); };
+  const removeVideo = (e, id) => {
+    if (!isAdmin) return; e.stopPropagation();
+    setVideos(p => { const n={...p}; delete n[id]; return n; });
+    setUcs(prev => { const updated = prev.map(u => u.id !== id ? u : { ...u, videoUrl: undefined, videoName: undefined }); saveUseCases(updated).catch(console.error); return updated; });
+  };
+  const removeArch = (e, id) => {
+    if (!isAdmin) return; e.stopPropagation();
+    setArchs(p => { const n={...p}; delete n[id]; return n; });
+    setUcs(prev => { const updated = prev.map(u => u.id !== id ? u : { ...u, archUrl: undefined, archName: undefined, archMime: undefined }); saveUseCases(updated).catch(console.error); return updated; });
+  };
 
   const saveUC = async uc => {
     if (!isAdmin) return; setSpStatus("saving"); let finalUcs;
